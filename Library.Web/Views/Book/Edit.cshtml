@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Library.Shared.Model.BookUpdateDto
+
+ 
+
+<h1>Edit Book</h1>
+
+ 
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+}git 
+
+ 
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="Title" value="@Model.Title">
+    </div>
+    <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" class="form-control" id="author" name="Author" value="@Model.Author">
+    </div>
+    <div class="form-group">
+        <label for="publisher">Publisher:</label>
+        <input type="text" class="form-control" id="publisher" name="Publisher" value="@Model.Publisher">
+    </div>
+    <div class="form-group">
+        <label for="yearPublished">Year Published:</label>
+        <input type="datetime" class="form-control" id="yearPublished" name="YearPublished" value="@Model.YearPublished">
+    </div>
+    <div class="form-group">
+        <label for="isbn">ISBN:</label>
+        <input type="text" class="form-control" id="isbn" name="Isbn" value="@Model.ISBN">
+    </div>
+    <div class="form-group">
+        <label for="isbn">Image:</label>
+        <input type="text" class="form-control" id="image" name="image" value="@Model.ImageUrl">
+    </div>
+    <div class="form-group">
+        <label for="isbn">Subcategory</label>
+        <input type="text" class="form-control" id="subcategory" name="subcategoryid" value="@Model.SubCategoryId">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

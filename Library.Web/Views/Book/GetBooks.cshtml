@@ -1,0 +1,12 @@
+﻿@using Library.Domain.Entities
+@model IEnumerable<Book>
+
+<h1>Books</h1>
+
+@foreach (var book in Model)
+{
+    <div>
+        <h2>@book.Title</h2>
+        <p>@book.Author</p>
+    </div>
+}

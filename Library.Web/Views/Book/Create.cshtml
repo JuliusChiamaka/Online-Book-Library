@@ -1,0 +1,100 @@
+﻿@using Library.Shared.Model
+@model BookCreateDto
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<div class="container booking">
+    <div class="row justify-content-center">
+        <div class="col-md-8 add-book">
+            <h4>Add a new book</h4>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Author" class="control-label"></label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ISBN" class="control-label"></label>
+                    <input asp-for="ISBN" type="text" class="form-control" />
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Publisher" class="control-label"></label>
+                    <input asp-for="Publisher" type="text" class="form-control" />
+                    <span asp-validation-for="Publisher" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="YearPublished" class="control-label"></label>
+                    <input asp-for="YearPublished" type="date" class="form-control" />
+                    <span asp-validation-for="YearPublished" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImageUrl" class="control-label"></label>
+                    <input asp-for="ImageUrl" type="text" class="form-control" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SubCategoryId" class="control-label"></label>
+                    <input asp-for="SubCategoryId" type="text" class="form-control" />
+                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <img width="100%" id="ImageUrlPreview" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn-add float-right" />
+                    <a class=" btn-show" asp-action="Index">Show all</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@*@using (Html.BeginForm("Create", "Book", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="title">Title:</label>
+        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="author">Author:</label>
+        @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="publisher">Publisher:</label>
+        @Html.TextBoxFor(model => model.Publisher, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="isbn">ISBN:</label>
+        @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image URL:</label>
+        @Html.TextBoxFor(model => model.ImageUrl, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="yearPublished">Year Published:</label>
+        @Html.EditorFor(model => model.YearPublished, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    @*<div class="form-group">
+        <label for="subCategoryId">Sub Category:</label>
+        @Html.DropDownListFor(model => model.SubCategoryId, new SelectList(ViewBag.SubCategories, "Id", "Name"), "- Select -", new { @class = "form-control" })
+    </div>*@
+    @*<button type="submit" class="btn btn-primary">Save</button>
+}*@

@@ -1,0 +1,23 @@
+﻿@using Library.Shared.Model
+@model UserUpdateDto
+
+<h1>Update User</h1>
+
+<form asp-action="UpdateUser" asp-route-id="@Model.Id" method="post">
+    <div>
+        <label for="UserName">Username:</label>
+        <input type="text" id="UserName" name="UserName" value="@Model.UserName" required>
+    </div>
+    <div>
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" value="@Model.Email" required>
+    </div>
+    <div>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" value="@Model.Password" required>
+    </div>
+
+    <div>
+        <button type="submit">Update User</button>
+    </div>
+</form>

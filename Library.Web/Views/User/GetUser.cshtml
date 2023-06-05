@@ -1,0 +1,19 @@
+﻿@using Library.Shared.Model
+@model UserResponseDto
+
+<h2>User Details</h2>
+
+<table>
+    <tr>
+        <td>Email:</td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td>Username:</td>
+        <td>@Model.UserName</td>
+    </tr>
+</table>
+
+<a href="@Url.Action("UpdateUser", new { userId = Model.Id })">Edit</a>
+<a href="@Url.Action("DeleteUser", new { userId = Model.Id })">Delete</a>
+<a href="@Url.Action("Index")">Back to List</a>
